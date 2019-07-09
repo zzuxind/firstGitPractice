@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 内部引用 -->
+    <script>
+        var name="hello";
+        var sentence="good afternoon, mr mike.";
+        var money="￥20";   
+        console.log(name.toUpperCase());
+        var splitsentence=sentence.split(/\s+/);
+        for(let i=0;i<splitsentence.length;i++){
+            splitsentence[i]=splitsentence[i].slice(0,1).toUpperCase()+splitsentence[i].slice(1);
+        }
+        console.log(splitsentence.join(" "));
+        console.log(money.slice(1));
+
+
+    </script>
+        
+    
+</head>
+<body>
+    
+</body>
+</html>
