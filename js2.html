@@ -21,6 +21,23 @@
         sortarray.sort(function(a,b){return b-a;});
         console.log(sortarray);
         var a = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+        var res={};
+        for(var i=0;i<a.length;i++){
+            if(!res[a[i]]){
+                res[a[i]]=1;
+            }else{
+                res[a[i]]++;
+            }
+        }
+        var keys=Object.keys(res);
+        var max=0,maxEle;
+        for(var i=0;i<keys.length;i++){
+            if(res[keys[i]]>max){
+                max=res[keys[i]];
+                maxEle=keys[i];
+            }
+        }
+        console.log(maxEle);
     </script>
 </head>
 <body>
