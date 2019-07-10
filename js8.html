@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p><input type="text" name="username" id="username" placeholder="请输入用户名"></p> 
+    <p><input type="password" name="password" id="password" placeholder="请输入密码"></p>
+    <p><button type="submit" onclick="check()">提交</button></p> 
+</body>
+<script>
+    function check(){
+        if(document.getElementById("username").value != "123" || document.getElementById("password").value != "123"){
+            console.log("用户名或密码错误")
+        }else{
+            console.log("success");
+        }
+    }
+</script>
+</html>
