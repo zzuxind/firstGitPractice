@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>定时器示例</title>
+  </head>
+  <body>
+  
+  <input type="text" id="result">
+  
+  <input type="button" value="开始" onclick="start()" >
+  <input type="button" value="结束" onclick="stop()">
+  
+  <script>
+    var timer1=null;
+    function start(){
+          var countTime=function(){
+              date=new Date();
+              dateStr=date.toLocaleTimeString();
+              document.getElementById("result").value=dateStr;
+            }
+        time1= window.setInterval(countTime,1000);
+    }
+
+    function stop(){
+        console.log("timestop");
+        window.clearInterval(timer1);
+    }
+  </script>
+  </body>
+  </html>
