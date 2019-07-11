@@ -32,15 +32,14 @@ window.onload = function () {
 
 
     function startGame() {
-        //resetScoreAndTime();
+        resetScoreAndTime();
         peep();
         setTimeout(() => {
             // TODO: 写当游戏时间结束后要发生的事
             clearInterval(h);
             titleH1.innerText="TIME UP!";
-            startBtn.classList.add('animate');
             startBtn.innerText="Replay!";
-            startBtn.style.display="block";
+            startBtn.style.display="inline-block";
         }, gameTime)
     }
 
@@ -49,6 +48,8 @@ window.onload = function () {
      */
     function resetScoreAndTime() {
         // TODO: 写游戏的初始化设置
+        score=0;
+        scoreBoard.innerText=score;
     }
 
     /**
