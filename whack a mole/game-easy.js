@@ -11,6 +11,8 @@ window.onload = function () {
     let score = 0;
     let gameTime = 10000;
 
+    var h;
+
 
     startBtn.addEventListener('click', function () {
         showBtnAnimation();
@@ -34,6 +36,11 @@ window.onload = function () {
         peep();
         setTimeout(() => {
             // TODO: 写当游戏时间结束后要发生的事
+            clearInterval(h);
+            titleH1.innerText="TIME UP!";
+            startBtn.classList.add('animate');
+            startBtn.innerText="Replay!";
+            startBtn.style.display="block";
         }, gameTime)
     }
 
@@ -48,11 +55,15 @@ window.onload = function () {
      * 出洞.
      */
     function peep() {
-        const time = randomTime(200, 1000);
-        console.log(time);
-        const hole = randomHole(holes);
-        console.log(hole);
-        comeOutAndStop(hole, time);
+    //    const time = randomTime(200, 1000);
+    //    console.log(time);
+    //    const hole = randomHole(holes);
+    //    console.log(hole);
+    //    comeOutAndStop(hole, time);
+      //setInterval(comeOutAndStop(randomHole(holes),randomTime(200, 1000)), 2000);
+      h=setInterval(() => {
+        comeOutAndStop(randomHole(holes),randomTime(200, 1000))
+      }, 1200);
     }
 
     /**
@@ -75,10 +86,11 @@ window.onload = function () {
      */
     function randomHole(holes) {
         // TODO: 写地鼠随机选择钻出地洞的逻辑，如果与上一个是相同地洞，则重新选择一个地洞.
-        let previous=null;
+        var previous=null;
         let hole=null;
-        while((hole=holes[Math.floor(Math.random() * 5)] )== previous){
-            hole=holes[Math.floor(Math.random() * 5)];
+        while((hole=holes[Math.floor(Math.random() * 6)] )== previous){
+            //console.log("和前一个相同");
+            hole=holes[Math.floor(Math.random() * 6)];
         }
         previous=hole;
         return hole;
@@ -91,9 +103,6 @@ window.onload = function () {
      * @param time 地鼠停留时间.
      */
     function comeOutAndStop(hole, time) {
-        // TODO: 写地鼠出洞并停留相应时间，如果游戏时间未结束(timeUp)，继续出洞(peep).
-        //var mole=hole.children[0];
-        //console.log(mole.classList);
         hole.classList.add('up');
         setTimeout(() => {
             hole.classList.remove("up");
@@ -107,7 +116,7 @@ window.onload = function () {
         // TODO: 在这里写用户点击地鼠发生的事.
         mole.parentElement.classList.remove("up");
         score++;
-        scoreBoard.
+        scoreBoard.innerText=score;
     }));
 
 };
