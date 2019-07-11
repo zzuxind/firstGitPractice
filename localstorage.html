@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="show"></p>
+    <button onclick="showcount()">点击+1</button>
+</body>
+<script>
+    var storage=window.localStorage;
+    window.onload=function(){
+        if(!storage.getItem("pagecount")){
+            storage.setItem("pagecount",0);
+        }else{
+            document.getElementById("show").innerText=storage.pagecount;  
+        }
+
+    }
+   
+
+    function showcount(){
+        storage.pagecount=parseInt(storage.pagecount)+1;
+        document.getElementById("show").innerText=storage.pagecount;
+    }
+</script>
+</html>
